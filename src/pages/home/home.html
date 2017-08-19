@@ -1,17 +1,39 @@
+<!--
+  Generated template for the HomePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
 <ion-header>
-  <ion-navbar>
+
+  <ion-navbar color ="primary">
     <ion-title>Home</ion-title>
   </ion-navbar>
+
 </ion-header>
 
+
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+<ion-list >
+<ion-item>
+    <ion-label floating>Enter Location</ion-label>
+    <ion-input type="text" value=""></ion-input>
+  </ion-item>
+</ion-list>
+
+<button ion-button full color="secondary" (click)="showWeather()">GET WEATHER</button>
+<br>
+<br>
+
+<ion-list *ngIf="weatherList">
+<img src="https://openweathermap.org/img/w/{{weatherList.weather[0].icon}}.png">
+<br>
+{{weatherList.weather[0].main}}
+<br><br>
+{{weatherList.weather[0].description}}
+<br><br>
+Low: {{weatherList.main.temp_min}}
+<br><br>
+High: {{weatherList.main.temp_max}}
+</ion-list>
 </ion-content>
